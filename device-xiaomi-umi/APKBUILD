@@ -1,0 +1,31 @@
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname=device-xiaomi-umi
+pkgdesc="Xiaomi Mi 10"
+pkgver=0.1
+pkgrel=0
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+_carch="arm64"
+options="!check !archcheck"
+depends="
+	linux-xiaomi-umi
+	mkbootimg
+	linux-firmware-qcom
+	mesa-dri-gallium
+	postmarketos-base
+"
+makedepends="devicepkg-dev"
+source="
+	deviceinfo
+"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+sha512sums=""
